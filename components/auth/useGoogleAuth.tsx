@@ -14,7 +14,7 @@ export function useGoogleAuth() {
     try {
       const { createdSessionId, setActive } = await startOAuthFlow({
         redirectUrl: Linking.createURL("auth-redirect", {
-          scheme: "deeperseeker",
+          scheme: "shail",
         }),
       });
       if (createdSessionId) {

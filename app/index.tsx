@@ -6,9 +6,9 @@ import { StyleSheet, View } from 'react-native';
 const Page = () => {
   return (
     <View style={styles.container}>
-      <Image source={require('@/assets/images/icon.png')} style={styles.icon} />
+      <Image source={require('@/assets/images/fishbowl.icon.png')} style={styles.icon} />
       <Text style={{ fontSize: 36, fontWeight: 'bold', color: 'white', textAlign: 'center', paddingTop: 20 }}>
-        DeeperSeeker
+        Shail
       </Text>
       <LoginButtons />
     </View>

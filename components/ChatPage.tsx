@@ -141,7 +141,7 @@ const ChatPage = () => {
             <View style={[styles.logoContainer]}>
               <Ionicons name="fish" size={30} color="#fff" />
             </View>
-            <Text style={{ fontSize: 20, fontWeight: "bold" }}>Hi, I'm DeeperSeeker.</Text>
+            <Text style={{ fontSize: 20, fontWeight: "bold" }}>Hi, I'm Shail.</Text>
             <Text style={{ fontSize: 16, color: Colors.greyLight }}>How can I help you today?</Text>
           </View>
         ) : (
