@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "DeeperSeeker",
-    "slug": "deeperseeker",
+    "name": "Shail",
+    "slug": "shail",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "deeperseeker",
+    "icon": "./assets/images/fishbowl.icon.png",
+    "scheme": "shail",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
@@ -16,7 +16,7 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "app.deeperseeker.app",
+      "bundleIdentifier": "com.shail.app",
       "config": {
         "usesNonExemptEncryption": false
       },
@@ -27,7 +27,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "app.deeperseeker.app",
+      "package": "com.shail.app",
       "permissions": [
         "android.permission.READ_EXTERNAL_STORAGE",
         "android.permission.WRITE_EXTERNAL_STORAGE",
@@ -37,7 +37,7 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/fishbowl.favicon.png"
     },
     "plugins": [
       "expo-router",
