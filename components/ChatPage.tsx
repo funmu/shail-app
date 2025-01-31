@@ -12,6 +12,7 @@ import MessageIdeas from "@/components/MessageIdeas";
 import { addChat, addMessage, getMessages } from "@/utils/Database";
 import { useSQLiteContext } from "expo-sqlite";
 import Colors from "@/constants/Colors";
+import AppConfig from "@/constants/AppConfig";
 import { Text } from "./Themed";
 import { Ionicons } from "@expo/vector-icons";
 import { KeyboardAwareScrollView, KeyboardStickyView } from "react-native-keyboard-controller";
@@ -70,7 +71,10 @@ const ChatPage = () => {
     setMessages(newMessages);
     
     try {
-      await sendMessage(newMessages, selectedModel || "deepseek-chat", (content: string, reasoningContent?: string) => {
+      await sendMessage(
+          newMessages, 
+          selectedModel || "deepseek-chat", 
+          (content: string, reasoningContent?: string) => {
         setMessages((messages) => {
           const lastMsg = messages[messages.length - 1];
             if (content) {
@@ -113,10 +117,7 @@ const ChatPage = () => {
           headerTitle: () => (
             <HeaderDropDown
               title="Model"
-              items={[
-                { key: "deepseek-chat", title: "DeepSeek Chat", icon: "bolt" },
-                { key: "deepseek-reasoner", title: "DeepSeek Reasoner", icon: "sparkles" },
-              ]}
+              items={ AppConfig.models.deepseek }
               onSelect={onModelChange}
               selected={selectedModel}
             />

@@ -1,3 +1,4 @@
+import AppConfig from '@/constants/AppConfig';
 import { Message, Role } from '@/utils/Interfaces';
 import { keyStorage } from '@/utils/Storage';
 import { fetch } from 'expo/fetch';
@@ -30,14 +31,24 @@ export const useApi = (): ApiHook => {
       // The last message of deepseek-reasoner must be a user message, or an assistant message with prefix mode on
       messageHistory[messageHistory.length - 1].prefix = true;
 
-      const response = await fetch('https://api.deepseek.com/beta/chat/completions', {
+      let completionUri = 'https://api.deepseek.com/beta/chat/completions';
+      let model = 'deepseek-chat';
+      for( let i = 0; i < AppConfig.models.deepseek.length; i++) {
+        const item =  AppConfig.models.deepseek[i];
+        if ( item.key == selectedModel) {
+          completionUri = item.completionUri;
+          break;
+        }
+      }
+
+      const response = await fetch( completionUri, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${key}`,
         },
         body: JSON.stringify({
-          model: selectedModel === 'deepseek-reasoner' ? 'deepseek-reasoner' : 'deepseek-chat',
+          model: selectedModel,
           messages: messageHistory,
           stream: true,
           stop: ['```'],
